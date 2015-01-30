@@ -445,7 +445,7 @@ class CertificateGen(object):
         styleOpenSansLight.textColor = colors.Color(0.302, 0.306, 0.318)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "CERTIFICATE"
+        paragraph_string = "CERTIFICADO"  # pt_BR
 
         # Right justified so we compute the width
         width = stringWidth(
@@ -466,7 +466,7 @@ class CertificateGen(object):
             0.302, 0.306, 0.318)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "Issued {0}".format(self.issued_date)
+        paragraph_string = "Emitido em {0}".format(self.issued_date)  # pt_BR
 
         # Right justified so we compute the width
         width = stringWidth(
@@ -487,7 +487,7 @@ class CertificateGen(object):
             0.302, 0.306, 0.318)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "This is to certify that"
+        paragraph_string = "Certifica-se que"  # pt_BR
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         paragraph.drawOn(c, LEFT_INDENT * mm, 132.5 * mm)
@@ -533,11 +533,11 @@ class CertificateGen(object):
             0.302, 0.306, 0.318)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "successfully completed"
+        paragraph_string = u"concluiu com êxito o curso"  # pt_BR
         if '7.00x' in self.course:
-            paragraph_string = "successfully completed the inaugural offering of"
+            paragraph_string = u"concluiu com êxito o curso inaugural"
         else:
-            paragraph_string = "successfully completed"
+            paragraph_string = u"concluiu com êxito o curso"
 
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
 
@@ -594,10 +594,9 @@ class CertificateGen(object):
             0.302, 0.306, 0.318)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "a course of study offered by <b>{0}</b>" \
-                           ", an online learning<br /><br />initiative of " \
-                           "<b>{1}</b> through <b>edX</b>.".format(
-                               self.org, self.long_org.decode('utf-8'))
+        paragraph_string = u"oferecido por <b>{0}</b>" \
+                           u", uma iniciativa de <br /><br />aprendizado online " \
+                           u"através da <b>ESO</b>.".format(self.org)  # pt_BR
 
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
@@ -611,10 +610,10 @@ class CertificateGen(object):
             0.302, 0.306, 0.318)
         styleOpenSansLight.alignment = TA_CENTER
 
-        paragraph_string = "HONOR CODE CERTIFICATE<br/>" \
-            "*Authenticity of this certificate can be verified at " \
-            "<a href='{verify_url}/{verify_path}/{verify_uuid}'>" \
-            "{verify_url}/{verify_path}/{verify_uuid}</a>"
+        paragraph_string = u"CÓDIGO DO CERTIFICADO DE HONRA<br/>" \
+            "*A autenticidade deste certificado pode ser verificado em " \
+            "<a href='{verify_url}/{verify_path}/{verify_uuid}/valid.html'>" \
+            "{verify_url}/{verify_path}/{verify_uuid}/valid.html</a>"   # pt_BR
 
         paragraph_string = paragraph_string.format(
             verify_url=settings.CERT_VERIFY_URL,
@@ -900,7 +899,7 @@ class CertificateGen(object):
         # ELEM: Footer - Issued on Date
         x_offset = pos_footer_date_x
         y_offset = pos_footer_date_y
-        paragraph_string = "Issued {0}".format(self.issued_date)
+        paragraph_string = "Emitido em {0}".format(self.issued_date)  # pt_BR
         # Right justified so we compute the width
         paragraph = Paragraph("{0}".format(
             paragraph_string), styleAvenirFooter)
