@@ -4,3 +4,5 @@
 *.DS_Store
 certs/
 .coverage
+template_data/v1-cert-templates/*.pdf
+cert-data.yml
