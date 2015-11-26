@@ -574,7 +574,6 @@ class CertificateGen(object):
 
         paragraph_string = u"<b><i>{0}: {1}</i></b>".format(
             self.course, self.long_course.decode('utf-8'))
-            self.course, self.long_course)
         paragraph = Paragraph(paragraph_string, styleOpenSans)
         # paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         if 'PH207x' in self.course:
