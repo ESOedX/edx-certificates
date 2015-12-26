@@ -236,7 +236,10 @@ class CertificateGen(object):
         # split the org and course from the course_id
         # if COURSE or ORG is set in the configuration
         # dictionary, use that instead
-        tmp_org, tmp_course, tmp_run = course_id.split('/')
+        if course_id.find('/') == -1:
+            tmp_org, tmp_course, tmp_run = course_id[10:].split('+')
+        else:
+            tmp_org, tmp_course, tmp_run = course_id.split('/')
         self.course = cert_data.get('COURSE', tmp_course)
         self.org = cert_data.get('ORG', tmp_org)
 
